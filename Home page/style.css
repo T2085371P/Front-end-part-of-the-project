@@ -1,0 +1,61 @@
+html, body {
+    margin: 0;
+    font-family: Quicksand-variable;
+}
+header, footer {
+    min-height: 10vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+#branding {
+    font-family: Quicksand-Bold;
+    font-size: larger;
+}
+
+li {
+    margin: 0 1rem;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: black;
+    text-decoration:none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+main {
+    min-height: 80vh;
+    background-image: url(image/student-849824_1920.jpg);
+    background-size: cover;
+}
+
+@font-face {
+    font-family: 'Quicksand-variable';
+    src: url(Font/Quicksand-VariableFont_wght.ttf) format('truetype');
+
+    font-family: 'Quicksand-Bold';
+    src: url(Font/Quicksand-Bold.ttf) format('truetype');
+}
+
+@media (max-width: 550px){
+    header, ul {
+            display: block;
+            text-align: center;
+            margin: 1rem;
+        }
