@@ -13,6 +13,12 @@ header {
     padding: 0 2rem;
 }
 
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #branding {
     font-family: Quicksand-Bold;
     font-size: larger;
@@ -58,4 +64,4 @@ main {
             display: block;
             text-align: center;
             margin: 1rem;
-        }
+}
