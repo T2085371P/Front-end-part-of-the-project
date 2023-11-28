@@ -2,6 +2,7 @@ html,
 body {
     margin: 0;
     font-family: Quicksand-variable;
+    color: rgb(231, 29, 29);
 }
 
 header,
@@ -14,19 +15,21 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 0 2rem;
+    background-color: #b5593c;
 }
 
 footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color:  #ffebee;
+    background-color:  wheat;
+    color: #a53410;
 }
 
 #branding {
     font-family: Quicksand-Bold;
     font-size: 2rem;
-    color: #b5593c;
+    color: #ffebee;
 }
 
 li {
@@ -43,11 +46,12 @@ ul {
 a {
     color: black;
     text-decoration: none;
+    color: wheat;
 }
 
 a:hover {
     text-decoration: underline;
-    color: #b5593c;
+    color: #ffebee;
 }
 
 section {
@@ -58,7 +62,7 @@ section {
     min-height: 60vh;
     background-image: url(image/student-849824_1920.jpg);
     background-size: cover;
-    color: #b5593c;
+    color: #a53410;
 }
 
 .home-content h2 {
@@ -121,7 +125,7 @@ span {
 }
 .services {
     min-height: 60vh;
-    background-color: #b5593c;
+    background-color: #a53410;
 }
 .services h2 {
     margin-bottom: 5rem;
@@ -164,7 +168,28 @@ span {
     margin: 1rem 0 2rem;
   }
 
+.heading {
+    color: #b19053;
+    margin-top: 50px;
+}
 
+.btn {
+    display: inline-block;
+    padding: 1rem 2.8rem;
+    background:#a53410;
+    border-radius: 4rem;
+    box-shadow: 0 0 1rem var(--main-color);
+    font-size: 1.0rem;
+    color: #b19053;
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+    transition: 0.5s ease;
+  }
+  
+  .btn:hover {
+    box-shadow: none;
+
+  }
 
 
 @font-face {
