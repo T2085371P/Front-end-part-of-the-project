@@ -109,11 +109,12 @@ p {
 .great {
     margin-top: 15px;
     text-align: center;
-    font-size: 3.0rem;  
+    font-size: 3.0rem;
 }
+
 .slogan {
     margin-top: 40px;
-    text-align:justify;
+    text-align: justify;
     font-size: 2.0rem;
 }
 
@@ -125,7 +126,7 @@ p {
     align-items: center;
     gap: 2rem;
     background-color: #ffebee;
-    
+
 }
 
 .about.visible {
@@ -201,7 +202,7 @@ p {
     color: #b19053;
     margin-top: 10px;
     text-align: center;
-    font-size: 3.5rem;    
+    font-size: 3.5rem;
 }
 
 .btn {
@@ -221,6 +222,7 @@ p {
     box-shadow: none;
 
 }
+
 .slogan {
     opacity: 0;
     transition: opacity 2s ease-in-out;
@@ -237,6 +239,28 @@ section.visible {
     opacity: 1;
 }
 
+#design {
+    background: linear-gradient(0deg, #d19d3c, transparent);
+    min-height: 100vh;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    margin-top: 3vh;
+}
+
+.design p {
+    font-size: 1.5rem;
+}
+
+.design h2 {
+    font-size: 2.5rem;
+    color: #b19053;
+}
+
+.design h3 {
+    font-size: 1.5rem;
+    color: #a53410;
+}
 
 @font-face {
     font-family: 'Quicksand-variable';
