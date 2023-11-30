@@ -1,86 +1,68 @@
-/*=============== toggle icon navbar ================*/
-let menuIcon = document.getElementById("menu-icon");
-let navbar = document.querySelector(".navbar");
+document.addEventListener("DOMContentLoaded", revealText);
+window.addEventListener("load", revealText);
 
-menuIcon.onclick = () => {
-  menuIcon.classList.toggle("bx-x");
-  navbar.classList.toggle("active");
-};
+// Add a scroll event listener
+window.addEventListener('scroll', function() {
+  revealTextOnScroll();
+});
 
-/*=============== scroll sections active link ================*/
-let sections = document.getElementsByTagName("section");
-let navLinks = document.getElementsByTagName("header nav a");
+function revealText() {
+  const slogans = document.querySelectorAll(".slogan, .heading, .great");
 
-window.addEventListener("scroll", () => {
-  const currentPos = window.scrollY;
-  sections.forEach((sec) => {
-    const top = sec.offsetTop - 150;
-    const height = sec.offsetHeight;
-    const id = sec.getAttribute("id");
-
-    if (currentPos >= top && currentPos < top + height) {
-      navLinks.forEach((link) => {
-        link.classList.remove("active");
-      });
-      document
-        .querySelector(`header nav a[href*=${id}]`)
-        .classList.add("active");
-    }
+  slogans.forEach((slogan, index) => {
+    setTimeout(() => {
+      slogan.style.opacity = "1";
+    }, index * 1000); // Adjust the delay (1000ms = 1s) as needed
   });
+}
 
-  /*==================== sticky navbar ====================*/
-  let header = document.querySelector(".header");
-  header.classList.toggle("sticky", currentPos > 100);
+function revealTextOnScroll() {
+  const revealTrigger = document.querySelector("#revealTrigger");
 
-  /*=============== remove toggle icon and navbar when click navbar link (scroll) ================*/
-  if (window.innerWidth < 768) {
-    menuIcon.classList.remove("bx-x");
-    navbar.classList.remove("active");
+  if (isElementInViewport(revealTrigger)) {
+    revealText();
+    // Remove the scroll event listener once the text is revealed (optional)
+    window.removeEventListener('scroll', revealTextOnScroll);
   }
-});
+}
 
-/*=============== smooth scrolling on anchor link clicks ================*/
-const anchorLinks = document.querySelectorAll('a[href^="#"]');
-anchorLinks.forEach((link) => {
-  link.addEventListener("click", (e) => {
-    e.preventDefault();
-    const target = document.querySelector(link.getAttribute("href"));
-    const topOffset = 100; // Adjust this value to offset the scroll position
-    const elementPosition = target.offsetTop;
-    const offsetPosition = elementPosition - topOffset;
+function isElementInViewport(el) {
+  const rect = el.getBoundingClientRect();
+  return (
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+  );
+}
 
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: "smooth",
-    });
-  });
-});
 
-/*==================== scroll reveal ====================*/
-ScrollReveal({
-  reset: true,
-  distance: "80px",
-  duration: 2000,
-  delay: 200,
-});
 
-ScrollReveal().reveal(".home-content, .heading", { origin: "top" });
-ScrollReveal().reveal(
-  ".home-img, .services-container, .portfolio-box, .contact-form",
-  { origin: "bottom" }
-);
-ScrollReveal().reveal(".home-content h1, .about-img", { origin: "left" });
-ScrollReveal().reveal(".home-content p, .about-content", { origin: "right" });
 
-/*==================== typed js ====================*/
-const typed = new Typed(".multiple-text", {
-  strings: [
-    "a Software Developer",
-    " a Graphic Designer",
-    "a Digital Marketer",
-  ],
-  typeSpeed: 100,
-  backSpeed: 100,
-  backDelay: 1000,
-  loop: true,
+document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll('section');
+
+    function handleScroll() {
+        const scrollPosition = window.scrollY;
+
+        sections.forEach((section) => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.offsetHeight;
+
+            if (
+                (scrollPosition > sectionTop - window.innerHeight + sectionHeight / 2) &&
+                (scrollPosition < sectionTop + sectionHeight)
+            ) {
+                section.classList.add("visible");
+            } else {
+                section.classList.remove("visible");
+            }
+        });
+    }
+
+    // Initial check in case elements are already visible on page load
+    handleScroll();
+
+    // Add scroll event listener
+    window.addEventListener("scroll", handleScroll);
 });
